@@ -2,7 +2,8 @@
 FROM node:8.12.0
 
 RUN apt-get update \
-    && apt-get install -y nginx
+    && apt-get install -y nginx \
+    npm install -g yarn
 
 WORKDIR /app
 
@@ -10,7 +11,7 @@ COPY . /app/
 
 EXPOSE 80
 
-RUN npm install \
+RUN yarn \
     && npm run build \
     && cp -r dist/* /var/www/html \
     && rm -rf /aa
