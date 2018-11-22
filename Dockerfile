@@ -1,8 +1,8 @@
 # 使用node版本 8.12.0
 FROM node:8.12.0
 
-RUN yum update \
-    && yum install -y nginx
+RUN apt-get update \
+    && apt-get install -y nginx
 
 WORKDIR /app
 
